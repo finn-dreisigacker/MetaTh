@@ -5,11 +5,27 @@ project:
   resources:
     - R/robins_i_v4.1.R
     - data/results_rob.xlsx
+    - data/summary_formulae.pdf
 
 book:
   title: "Rewiring Immune Regulation Through Acute Exercise"
   subtitle: "A Systematic Review and Meta-Analysis on TH1 and TH2 Cell Responses - Documenation"
-  author: "Finn Dreiisgacker"
+  author:
+    - name: "Finn Dreisigacker"
+      affiliation:
+      - ref: cgn
+      orcid: "https://orcid.org/0009-0008-6419-0751, "
+    - name: "Miriam Ringleb"
+      affiliation:
+        - ref: cgn
+        - ref: jena-prev
+        - ref: jena-sports
+      orcid: "https://orcid.org/0009-0009-0833-4367"
+    - name: "Florian Javelle"
+      affiliation:
+      - ref: cgn 
+      orcid: "https://orcid.org/0000-0003-4240-2588"
+
   date: "2026-06-01"
   search: true
   page-footer: "Rewiring Immune Regulation Through Acute Exercise - Documentation"
@@ -33,6 +49,14 @@ book:
         - qmd/ratio-immediate.qmd
         - qmd/ratio-2h.qmd
         - qmd/ratio-17h.qmd
+
+affiliations:
+  - id: cgn
+    name: "NeuroPsychoImmunology research unit, Dept. for Molecular and Cellular Sports Medicine, Institute of Cardiovascular Research and Sports Medicine, German Sport University Cologne, Cologne, Germany"
+  - id: jena-prev
+    name: "Center for Interdisciplinary Prevention of Diseases related to Professional Activities, Friedrich-Schiller-University Jena, Jena, Germany"
+  - id: jena-sports
+    name: "Department of Sports Medicine and Health Promotion, Friedrich-Schiller-University Jena, Jena, Germany"
 
 execute:
   echo: true
