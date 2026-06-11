@@ -1,0 +1,160 @@
+# Study Characteristics {.unnumbered}
+
+```{r}
+#| include: false
+for (p in c("_common.R", "../_common.R", "book/_common.R")) if (file.exists(p)) { source(p); break }
+```
+
+::: infobox
+**Table 1** presents the characteristics of all 18 intervention arms (14 unique studies) included in the meta-analysis. Studies are listed in order of intervention ID. Age and BMI are reported as mean ± SD where available; NA indicates not reported.
+:::
+
+```{r study-characteristics-table}
+#| label: tbl-study-characteristics
+#| tbl-cap: "*Characteristics of included intervention arms (N = 18 arms from 14 studies). Age and BMI are mean ± SD where available; NA = not reported. VO2max units vary by study: l/min or ml/kg/min as reported. CHO = carbohydrate; CPET = cardiopulmonary exercise test; IPAH = idiopathic pulmonary arterial hypertension; YYRL1 = Yo-Yo intermittent recovery level 1.*"
+#| echo: false
+
+library(knitr)
+
+study_chars <- data.frame(
+  ID = 1:18,
+  Study = c(
+    "Ibfelt et al. (2002)",
+    "Kostrzewa-Nowak & Nowak (2018)a",
+    "Kostrzewa-Nowak & Nowak (2018)b",
+    "Kostrzewa-Nowak et al. (2019)",
+    "Kostrzewa-Nowak & Nowak (2020a)a",
+    "Kostrzewa-Nowak & Nowak (2020a)b",
+    "Kostrzewa-Nowak & Nowak (2020b)a",
+    "Kostrzewa-Nowak & Nowak (2020b)b",
+    "Kostrzewa-Nowak & Nowak (2020b)c",
+    "Kostrzewa-Nowak & Nowak (2020b)d",
+    "Kostrzewa-Nowak & Nowak (2020b)e",
+    "Steensberg et al. (2001)",
+    "Tsubakihara et al. (2012)",
+    "Lancaster et al. (2005)a",
+    "Lancaster et al. (2005)b",
+    "Lancaster et al. (2005)c",
+    "Harbaum et al. (2016)a",
+    "Harbaum et al. (2016)b"
+  ),
+  Group = c(
+    "—", "Testing – Autumn", "Testing – Spring", "—",
+    "BEEP", "YYRL1",
+    "Age 18", "Age 19", "Age 20", "Age 16", "Age 17",
+    "—", "—",
+    "Placebo", "6.4% CHO", "12.8% CHO",
+    "IPAH", "Healthy"
+  ),
+  Design = c(
+    "Pre–post", "Pre–post", "Pre–post", "Pre–post",
+    "Pre–post", "Pre–post", "Pre–post", "Pre–post",
+    "Pre–post", "Pre–post", "Pre–post",
+    "Pre–post", "Pre–post",
+    "Crossover", "Crossover", "Crossover",
+    "Pre–post", "Pre–post"
+  ),
+  N = c(
+    "7 men", "14 men", "14 men", "3 men",
+    "31 men", "31 men",
+    "16 men", "16 men", "16 men", "16 men", "16 men",
+    "9 men", "18 women",
+    "7 men", "7 men", "7 men",
+    "16 (12w, 4m)", "10 (6w, 4m)"
+  ),
+  Age = c(
+    "28", "18.71 ± 0.99", "16.79 ± 0.58", "30",
+    "17.87 ± 1.71", "17.90 ± 2.75",
+    "18", "19", "20", "16", "17",
+    "30", "NA",
+    "25", "25", "25",
+    "58", "58"
+  ),
+  BMI = c(
+    "NA", "21.6", "21.5", "23",
+    "22.29 ± 1.30", "21.7 ± 0.99",
+    "19.28", "19.44", "20.49", "21.91", "21.54",
+    "NA", "21.68",
+    "NA", "NA", "NA",
+    "25", "24"
+  ),
+  `Training status` = c(
+    "NA", "Trained", "Trained", "Trained",
+    "Trained", "Trained",
+    "Trained", "Trained", "Trained", "Trained", "Trained",
+    "Endurance trained", "Trained soccer players",
+    "Endurance trained", "Endurance trained", "Endurance trained",
+    "Untrained", "Untrained"
+  ),
+  VO2max = c(
+    "4.9 l/min", "60.8", "62.2", "NA",
+    "NA", "NA",
+    "61.88 ± 4.25", "60.73 ± 4.57", "60.26 ± 3.34", "61.25 ± 4.31", "60.15 ± 3.6",
+    "60.1 ml/kg/min", "NA",
+    "59.2", "59.2", "59.2",
+    "15", "23"
+  ),
+  `Exercise type` = c(
+    "1.5 h downhill running at 75% VO2max",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "Beep test (20 m shuttle, start 8.5 km/h)",
+    "YYRL1 (2×20 m shuttles, start 10 km/h)",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "Progressive treadmill test to exhaustion",
+    "2.5 h running at 75% VO2max",
+    "2 h soccer match",
+    "2.5 h cycling at 65% VO2max (placebo)",
+    "2.5 h cycling at 65% VO2max (6.4% CHO)",
+    "2.5 h cycling at 65% VO2max (12.8% CHO)",
+    "CPET (10 W/min increment)",
+    "CPET (10 W/min increment)"
+  ),
+  Fasted = c(
+    "NA", "NA", "NA", "NA", "NA", "NA",
+    "NA", "NA", "NA", "NA", "NA",
+    "Yes", "No",
+    "Yes", "Yes", "Yes",
+    "NA", "NA"
+  ),
+  `Analysis method` = c(
+    "Flow cytometry, intracellular IFN-γ & IL-4",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Th1/Th2/Th17 Phenotyping Kit",
+    "Flow cytometry, intracellular IFN-γ & IL-4",
+    "Flow cytometry: CD4+CXCR3+ (Th1), CD4+CCR4+ (Th2)",
+    "Intracellular IFN-γ & IL-4, CD4+",
+    "Intracellular IFN-γ & IL-4, CD4+",
+    "Intracellular IFN-γ & IL-4, CD4+",
+    "Flow cytometry: CXCR3+/CCR4−/CCR6− (Th1), CXCR3−/CCR4+/CCR6− (Th2)",
+    "Flow cytometry: CXCR3+/CCR4−/CCR6− (Th1), CXCR3−/CCR4+/CCR6− (Th2)"
+  ),
+  `Data source` = c(
+    "Plot", "Raw data", "Raw data", "Plot",
+    "Raw data", "Raw data",
+    "Raw data", "Raw data", "Raw data", "Raw data", "Raw data",
+    "Plot", "Table",
+    "Table", "Table", "Table",
+    "Plot", "Plot"
+  ),
+  check.names = FALSE,
+  stringsAsFactors = FALSE
+)
+
+kable(
+  study_chars,
+  align = c("c", "l", "l", "c", "c", "c", "c", "c", "l", "c", "l", "c")
+)
+```
