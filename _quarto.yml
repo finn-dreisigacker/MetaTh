@@ -11,16 +11,16 @@ book:
   title: "Rewiring Immune Regulation Through Acute Exercise"
   subtitle: "A Systematic Review and Meta-Analysis on TH1 and TH2 Cell Responses - Documenation"
   author:
-    - name: "Finn Dreisigacker"
-      affiliation:
-      - ref: cgn
-      orcid: "https://orcid.org/0009-0008-6419-0751, "
     - name: "Miriam Ringleb"
       affiliation:
         - ref: cgn
         - ref: jena-prev
         - ref: jena-sports
       orcid: "https://orcid.org/0009-0009-0833-4367"
+    - name: "Finn Dreisigacker"
+      affiliation:
+      - ref: cgn
+      orcid: "https://orcid.org/0009-0008-6419-0751, "
     - name: "Florian Javelle"
       affiliation:
       - ref: cgn 
